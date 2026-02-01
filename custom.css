@@ -1,0 +1,1148 @@
+.theme-dark .tab-position .tab.active .tab-header .favicon {
+  filter: none !important;
+}
+
+/* Vivaldi Air v.25
+Cleaned and organized version
+*/
+
+:root {
+    --customRadius: 8px; /* NOT USING NOW */
+
+    --bgDark: rgba(0, 0, 0, 0.4);
+    --bgLight: rgba(255, 255, 255, 0.4);
+    
+    --bgDisabledDark: rgba(0, 0, 0, 0.2);
+    --bgDisabledLight: rgba(255, 255, 255, 0.2);
+
+    --blurLow: blur(4px);
+    --blurMed: blur(6px);
+    --blurMedHigh: blur(8px);
+    --blurHigh: blur(12px);
+
+    --hoverBlur: var(--blurMed);
+
+    --anim-duration: 128ms;
+
+    --space: 5px;
+
+    /* Startpage navigation variables */
+    --startpageNavBtnPrimary: var(--colorFg);
+    --startpageNavBtnSecondary: var(--colorFg);
+    --startpageNavBtnInactive: transparent;
+    --startpageNavBtnRounding: 14px;
+    --startpageNavBtnHeight: 23px;
+    --startpageNavBtnMargin: 10px;
+    --startpageNavPaddingOnTop: 10px;
+    --startpageNavPaddingOnBottom: 10px;
+    --startpageNavTextShadow: 0 0 2px var(--startpageNavBtnSecondary), 0 0 3px var(--startpageNavBtnSecondary), 0 0 5px var(--startpageNavBtnSecondary);
+    --startpageNavIconShadow: drop-shadow(0 0 4px var(--startpageNavBtnSecondary));
+    --startpageNavBlur: 6px;
+    --startpageNavBlurStrong: 12px;
+}
+
+/* set theme-aware overlay */
+.theme-dark {
+    --bg: var(--bgDark);
+    --bgDisabled: var(--bgDisabledDark);
+}
+.theme-light {
+    --bg: var(--bgLight);
+    --bgDisabled: var(--bgDisabledLight);
+}
+
+/* ====================== */
+/* WINDOW CONTROLS        */
+/* ====================== */
+
+#browser.win.address-top .toolbar-mainbar:has(.window-buttongroup.on-mainbar),
+#browser.linux.address-top .toolbar-mainbar:has(.window-buttongroup.on-mainbar) {
+    min-height: calc(42px / var(--uiZoomLevel));
+}
+
+.disable-titlebar#browser.win .window-buttongroup {
+    height: 44px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#browser.win .window-buttongroup {
+    position: fixed !important;
+    right: 0px !important;
+    top: 0px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    line-height: initial;
+    z-index: 10000 !important;
+}
+
+#browser.win .window-buttongroup button {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#browser.win .window-buttongroup button.window-close {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important; 
+}
+
+#browser.win .window-buttongroup button.window-minimize {
+    border-bottom-left-radius: var(--radius) !important;
+}
+
+/* Window buttons hover effect */
+#browser.win .window-buttongroup button:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: background-color 0.2s ease;
+}
+
+/* Close button special red hover */
+#browser.win .window-buttongroup button.window-close:hover {
+    background-color: rgba(232, 17, 35, 0.9) !important;
+}
+
+#browser.win.tabs-left .window-buttongroup,
+#browser.win.tabs-right .window-buttongroup,
+#browser.win.tabs-off .window-buttongroup {
+    right: 0px !important;
+    margin-right: 0px !important;
+}
+
+/* ====================== */
+/* MAINBAR / ADDRESS BAR  */
+/* ====================== */
+
+.density-on .UrlBar-SearchField, 
+.density-on .UrlBar-AddressField {
+    height: 34px;
+}
+
+.mainbar {
+    background-color: var(--bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin: 0 5px 5px 5px;
+    border-radius: var(--radius);
+    z-index: 2;
+}
+
+.SearchField, .UrlBar-AddressField {
+    border: none !important;
+    background-color: transparent;
+}
+
+.SearchField:hover, .UrlBar-AddressField:hover,
+.color-behind-tabs-on .SearchField:focus-within, 
+.color-behind-tabs-on .MailSearchField-Inner:focus-within, 
+.color-behind-tabs-on .UrlBar-AddressField:focus-within {
+    background-color: var(--bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.UrlFragment-Wrapper--ShouldHighlight {
+    --HighlightColor: var(--colorFg);
+    --LowlightColor: var(--colorFg);
+}
+
+.address-top .mainbar { 
+    border-bottom: none; 
+}
+
+.mainbar button:hover,
+#browser:not(.tabs-top) .vivaldi:hover, 
+#browser:not(.tabs-top) .vivaldi:focus-visible,
+.theme-dark#browser.win .window-buttongroup button:hover {
+    background-color: var(--bg);
+    backdrop-filter: var(--blurMed);
+}
+
+.disable-titlebar.address-top#browser:not(.tabs-top) .vivaldi {
+    margin: 0 5px;
+}
+
+/* Address & Search fields inside tab bar */
+#tabs-tabbar-container .UrlBar .UrlBar-AddressField,
+#tabs-tabbar-container .UrlBar .SearchField,
+#tabs-tabbar-container .toolbar-mainbar .UrlBar-AddressField,
+#tabs-tabbar-container .toolbar-mainbar .SearchField,
+.tabbar-wrapper .UrlBar-AddressField,
+.tabbar-wrapper .SearchField {
+    background-color: var(--bg) !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: var(--radius) !important;
+}
+
+/* ====================== */
+/* VIVALDI MENU BUTTON    */
+/* ====================== */
+
+.vivaldi {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#browser:not(.tabs-top) .vivaldi,
+.button-toolbar.vivaldi {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    align-self: flex-start !important;
+}
+
+#browser.tabs-top .vivaldi {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.vivaldi button,
+.vivaldi > button,
+button.vivaldi {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    min-height: 32px !important;
+    min-width: 32px !important;
+}
+
+.vivaldi button svg,
+.vivaldi > button svg,
+.vivaldi svg {
+    display: block !important;
+    margin: 0 auto !important;
+    vertical-align: middle !important;
+}
+
+.mainbar .vivaldi,
+#browser .vivaldi {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.vivaldi, .sidebar .button-toolbar.settings, .button-settings {
+    z-index: 1001 !important;
+}
+
+/* ====================== */
+/* SIDEBAR                */
+/* ====================== */
+
+#panels-container {
+    margin-bottom: 5px;
+    background-color: var(--bg);
+    border-radius: var(--radius);
+    min-width: 44px;
+    position: relative;
+    transition: 
+        width var(--anim-duration), 
+        margin-left var(--anim-duration) ease-out, 
+        min-width var(--anim-duration) !important;
+}
+
+#panels-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    pointer-events: none;
+    z-index: -1;
+}
+
+#panels-container.overlay:not(.icons) .panel-group {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: var(--radius);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#panels-container.left { margin-left: 5px; }  
+#panels-container.right { margin-right: 5px; }  
+
+#browser #panels-container.left,
+#browser #panels-container.right {
+    margin-bottom: 5px !important;
+}
+
+#panels-container #switch { 
+    padding-bottom: 5px; 
+    min-width: 44px; 
+}
+
+#panels-container.switcher {
+    width: 0;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+}
+
+#panels-container.switcher #switch {
+    visibility: none !important; 
+}
+
+#panels {
+    padding-bottom: 5px;
+}
+
+#panels .webpanel-stack .webpanel .webpanel-content {
+    margin: 5px;
+    margin-bottom: 0;
+    border-radius: var(--radius);
+}
+
+#panels .webpanel-stack .webpanel .webpanel-header {
+    box-shadow: none !important;
+    padding-bottom: 0;
+}
+
+#panels input,
+#panels label:not(div.tree-row > label):not(.disabled),
+#panels textarea {
+    background-color: var(--bg);
+    border-radius: var(--radius);
+    border: none;
+    box-shadow: none;
+}
+
+#panels .sortselector {
+    border: none !important;
+    background-color: var(--bg);
+}
+
+#panels .sortselector-button {
+    background-color: none !important;
+    height: calc(var(--treeViewRowHeight) - 2px);
+}
+
+#panels #window-panel .vivaldi-tree .tree-row {
+    background-color: var(--bg) !important;
+}
+
+.panel-group .button-toolbar > button {
+    background-color: var(--bg) !important;
+    background-image: none !important;
+    border: none !important;
+}
+
+.panel-group .button-toolbar > button:disabled {
+    background-color: var(--bgDisabled) !important;
+}
+
+.NotesEditor-Editor-Background:after { 
+    visibility: hidden; 
+}
+
+.NotesEditor-EmptyPlaceholder:hover {
+    background-color: var(--bg);
+    outline: none;
+    border-radius: var(--radius);
+}
+
+#panels-container.overlay .panel-group,
+.ExtensionToggleIcon.ExtensionToggleIcon--Expanded,
+.ExtensionIcon--Hidden { 
+    background-color: transparent; 
+}
+
+#panels-container button:hover,
+.ExtensionIcon--Hidden:hover, 
+.ExtensionIcon--Hidden:active,
+.toolbar-panel > .button-toolbar > button.button-pressed, 
+.toolbar-panel .toolbar-extensions .button-toolbar > button.button-pressed, 
+.toolbar-panel .page-zoom-controls .button-toolbar > button.button-pressed,
+.density-on #switch .addwebpanel-wrapper > button.active button, 
+.density-on #switch > .button-toolbar.active button, 
+.density-on #switch > * > .button-toolbar.active button, 
+.density-on #switch > button.active button {
+    background-color: var(--bg);
+    backdrop-filter: var(--blurMed);
+}
+
+#panels-container .panel-group,
+#panels .webpanel-stack .webpanel .webpanel-content {
+    border-radius: var(--radius) !important;
+    overflow: hidden; 
+}
+
+/* ====================== */
+/* STATUS BAR             */
+/* ====================== */
+
+footer#footer {
+    background: none !important;
+    border-top: none !important;
+}
+
+footer .toolbar-statusbar {
+    background-color: var(--bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    margin: 0 5px 5px 5px;
+}
+
+.inner > .StatusInfo > .StatusInfo-Content {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurLow) !important;
+    -webkit-backdrop-filter: var(--blurLow) !important;
+    border-radius: var(--radius) !important;
+    padding-bottom: 5px !important;
+    margin: 0 0 5px 13px !important;
+    border: none !important;
+}
+
+/* ====================== */
+/* WORKSPACES             */
+/* ====================== */
+
+#tabs-tabbar-container .toolbar:not(.toolbar-small) > .button-toolbar,
+#tabs-tabbar-container .toolbar:not(.toolbar-small) > div > .button-toolbar {
+    color: var(--colorFg) !important;
+    background: transparent !important;
+}
+
+#tabs-tabbar-container .toolbar:not(.toolbar-small) > .button-toolbar > button:active,
+#tabs-tabbar-container .toolbar:not(.toolbar-small) > div > .button-toolbar > button:active,
+#tabs-tabbar-container .toolbar:not(.toolbar-small) > .button-toolbar:not(.toolbar-spacer, .toolbar-spacer-flexible) > button:not([disabled]):hover,
+#tabs-tabbar-container .toolbar:not(.toolbar-small) > div > .button-toolbar:not(.toolbar-spacer, .toolbar-spacer-flexible) > button:not([disabled]):hover {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurMed) !important;
+    -webkit-backdrop-filter: var(--blurMed) !important;
+    border-radius: var(--radius);
+}
+
+/* Workspace button glass effect - ONLY workspace buttons */
+#tabs-tabbar-container > .toolbar > .button-toolbar > button:not(.window-minimize):not(.window-maximize):not(.window-close),
+#tabs-tabbar-container > .toolbar > div > .button-toolbar > button:not(.window-minimize):not(.window-maximize):not(.window-close) {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) brightness(0.9) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2),
+        0 4px 16px 0 rgba(0, 0, 0, 0.4) !important;
+    border-radius: var(--radius) !important;
+    transition: all 0.2s ease;
+}
+
+#tabs-tabbar-container .toolbar .button-toolbar button:not(.window-minimize):not(.window-maximize):not(.window-close):hover {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) brightness(1.0) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(1.0) !important;
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    box-shadow: 
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.20),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2),
+        0 4px 16px 0 rgba(0, 0, 0, 0.5) !important;
+    transform: translateY(-1px);
+}
+
+/* Exclude icons from glass effect */
+.newtab,
+button.newtab,
+.button-toolbar.newtab,
+#tabs-tabbar-container button[title*="New Tab"],
+#tabs-tabbar-container button[title*="+"],
+.toolbar-mainbar .button-toolbar button {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+
+/* Workspace popup */
+.button-popup.WorkspacePopup {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurHigh) !important;
+    -webkit-backdrop-filter: var(--blurHigh) !important;
+    border-radius: var(--radius);
+    width: 194px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.WorkspacePopup-Items .workspace-item-wrapper,
+.WorkspacePopup-Items .this-window {
+    background-color: transparent !important;
+    border-radius: var(--radius);
+    margin-bottom: 3px;
+    transition: background-color var(--anim-duration) ease;
+}
+
+.WorkspacePopup-Items .workspace-item-wrapper:hover,
+.WorkspacePopup-Items .this-window:hover {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurLow) !important;
+    -webkit-backdrop-filter: var(--blurLow) !important;
+}
+
+.WorkspacePopup-Items .workspace-item-wrapper .title .tab-count,
+.WorkspacePopup-Items .this-window .title .tab-count {
+    color: var(--colorFg) !important;
+    font-weight: 500;
+}
+
+.WorkspacePopup-Items { padding: 5px 5px 0 !important; }
+.WorkspacePopup .actions { padding: 0px 5px 5px !important; }
+.WorkspacePopup-Items hr { margin: 5px 0 1px !important; }
+
+.button-popup-right.button-popup-arrow-dark:before,
+.button-popup-arrow-light:before { 
+    border-bottom-color: transparent !important; 
+}
+
+.button-popup.ToolbarButtonPopup-DefaultStyles {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurMed) !important;
+    -webkit-backdrop-filter: var(--blurMed) !important;
+    border-radius: var(--radius);
+}
+
+.button-popup.ToolbarButtonPopup-DefaultStyles h2 {
+    background: transparent !important;
+    border-bottom: none !important;
+}
+
+/* ====================== */
+/* TABS                   */
+/* ====================== */
+
+#browser .tabbar-wrapper, 
+#browser.tabs-top #header { 
+    background-color: transparent; 
+}
+
+#browser:not(.transparent-tabbar) #tabs-tabbar-container {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    margin: 0px 5px 0 5px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    z-index: 1 !important;
+    position: relative !important;
+    padding-bottom: 6px !important;
+}
+
+#titlebar {
+    position: absolute;
+    width: 100%;
+    left: 5px;
+    top: 5px;
+    right: 0px;
+    pointer-events: none;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#browser #header,
+#browser #titlebar {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Non-active tabs */
+#tabs-container .tab:not(.active) {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.08)
+    ) !important;
+    backdrop-filter: blur(40px) saturate(180%) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 2px 4px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover states */
+#tabs-container .tab:not(.tab-group,.tab.active):hover,
+#browser .tab-position.colored.accordion-toggle-arrow:hover, 
+#browser .tab-position.colored .tab:not(.active):hover {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.12)
+    ) !important;
+    backdrop-filter: blur(50px) saturate(200%) brightness(1.2) !important;
+    -webkit-backdrop-filter: blur(50px) saturate(200%) brightness(1.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 4px 12px 0 rgba(0, 0, 0, 0.4) !important;
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+/* Active tab with liquid glass effect */
+.tab.active {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) brightness(0.9) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2),
+        0 4px 16px 0 rgba(0, 0, 0, 0.4) !important;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.tab.active::after { 
+    background: transparent !important;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+    animation: liquid-wave 2s ease-in-out infinite;
+}
+
+.tab.active::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: liquid-shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes liquid-shimmer {
+    0%, 100% {
+        transform: translate(-25%, -25%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(25%, 25%) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes liquid-wave {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+
+.tab.active .favicon { 
+    filter: none !important; 
+}
+
+#browser.color-behind-tabs-on .tab.active.active,
+#browser .tab-position.colored .tab.active,
+#browser .tab-position.colored .tab:not(.active),
+#browser .tab-position.colored.accordion-toggle-arrow {
+    background-color: var(--bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+#browser .tab-position.colored .stack-counter {
+    background-color: var(--colorHighlightBg) !important; 
+    color: var(--colorHighlightFg) !important; 
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0 6px;
+    min-width: 16px;
+    text-align: center;
+}
+
+#browser .tab-position.colored .tab-group-indicator,
+#browser .tab-position.colored .tabbar-group-title {
+    color: var(--colorFg) !important;
+}
+
+#browser .tab-position.colored .tab:not(.active) .tab-header {
+    color: var(--colorFg) !important;
+}
+
+/* ====================== */
+/* TAB STACKS             */
+/* ====================== */
+
+#tabs-subcontainer,
+#tabs-tabbar-container [aria-label="Tab Stack Toolbar"],
+#tabs-tabbar-container .tabbar-wrapper + .tabbar-wrapper,
+#tabs-tabbar-container .tabbar-wrapper:has(.tab.is-sub),
+#tabs-tabbar-container .tabbar-subcontainer {
+    background: transparent !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: var(--radius);
+    margin: 3px 5px 3px 5px;
+}
+
+#tabs-subcontainer .tab:not(.active),
+#tabs-tabbar-container [aria-label="Tab Stack Toolbar"] .tab:not(.active),
+#tabs-tabbar-container .tabbar-wrapper + .tabbar-wrapper .tab:not(.active),
+#tabs-tabbar-container .tabbar-subcontainer .tab:not(.active) {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.08)
+    ) !important;
+    backdrop-filter: blur(40px) saturate(180%) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.05) !important;
+    border: none !important;
+    box-shadow: 
+        0 0 8px 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 2px 4px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+#tabs-subcontainer .tab:not(.active):hover,
+#tabs-tabbar-container [aria-label="Tab Stack Toolbar"] .tab:not(.active):hover,
+#tabs-tabbar-container .tabbar-wrapper + .tabbar-wrapper .tab:not(.active):hover,
+#tabs-tabbar-container .tabbar-subcontainer .tab:not(.active):hover {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.12)
+    ) !important;
+    backdrop-filter: blur(50px) saturate(200%) brightness(1.2) !important;
+    -webkit-backdrop-filter: blur(50px) saturate(200%) brightness(1.2) !important;
+    border: none !important;
+    box-shadow: 
+        0 0 12px 2px rgba(255, 255, 255, 0.2),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 4px 12px 0 rgba(0, 0, 0, 0.4) !important;
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+#tabs-subcontainer .tab.active,
+#tabs-tabbar-container [aria-label="Tab Stack Toolbar"] .tab.active,
+#tabs-tabbar-container .tabbar-wrapper + .tabbar-wrapper .tab.active,
+#tabs-tabbar-container .tabbar-subcontainer .tab.active {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) brightness(0.9) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(0.9) !important;
+    border: none !important;
+    box-shadow: 
+        0 0 10px 1px rgba(255, 255, 255, 0.15),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2),
+        0 4px 16px 0 rgba(0, 0, 0, 0.4) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Force remove border from active stack tabs */
+#tabs-subcontainer .tab.active,
+#tabs-tabbar-container [aria-label="Tab Stack Toolbar"] .tab.active,
+#tabs-tabbar-container .tabbar-wrapper + .tabbar-wrapper .tab.active,
+#tabs-tabbar-container .tabbar-subcontainer .tab.active {
+    border: none !important;
+    outline: none !important;
+}
+
+/* ====================== */
+/* TAB POSITIONS          */
+/* ====================== */
+
+#browser.tabs-bottom #tabs-tabbar-container {
+    padding-top: 6px !important;
+    padding-bottom: 10px !important;
+}
+
+#browser.tabs-bottom:not(.transparent-tabbar) #tabs-tabbar-container {
+    margin: 0 5px 5px 5px !important;
+    border-radius: var(--radius) !important;
+}
+
+#browser.tabs-bottom #footer {
+    background: transparent !important;
+}
+
+.tabs-left #tabs-tabbar-container {
+    margin-bottom: 5px !important;
+    margin-right: 0px !important;
+    margin-top: 0px !important;
+}
+
+.tabs-right #tabs-tabbar-container {
+    margin-bottom: 5px !important;
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+}
+
+#browser.tabs-off #tabs-tabbar-container,
+#browser.tabs-off #header {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ====================== */
+/* WEBPAGE CONTAINER      */
+/* ====================== */
+
+#browser:not(.fullscreen) #webpage-stack {
+    border-radius: var(--radius);
+    margin: 0 5px 5px 5px;
+}
+
+/* ====================== */
+/* FULLSCREEN             */
+/* ====================== */
+
+#browser.fullscreen,
+#browser.fullscreen body,
+#browser.fullscreen #header,
+#browser.fullscreen #titlebar,
+#browser.fullscreen #tabs-container,
+#browser.fullscreen #tabs-tabbar-container,
+#browser.fullscreen .mainbar,
+#browser.fullscreen .bookmark-bar,
+#browser.fullscreen #webpage-stack {
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    border: none !important;
+}
+
+/* ====================== */
+/* BOOKMARK BAR           */
+/* ====================== */
+
+.bookmark-bar {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: var(--radius);
+    margin: 4px;
+    padding: 4px 8px;
+    min-height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 0 !important;
+}
+
+.bookmark-bar .observer { 
+    background: transparent !important; 
+}
+
+.bookmark-bar button,
+.bookmark-bar .button-toolbar > button,
+.bookmark-bar .bookmark-item,
+.bookmark-bar .bookmarkbar-item,
+.bookmark-bar .toolbar > .button-toolbar > button {
+    background-color: transparent !important;
+    color: var(--colorFg) !important;
+    border: none !important;
+    border-radius: var(--radius);
+    height: 30px !important;
+    line-height: 30px !important;
+    padding: 0 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: background-color 0.2s ease, backdrop-filter 0.2s ease, color 0.2s ease;
+}
+
+.bookmark-bar .button-title,
+.bookmark-bar .title,
+.bookmark-bar .bookmark-label { 
+    color: var(--colorFg) !important; 
+}
+
+.bookmark-bar button:hover,
+.bookmark-bar .button-toolbar > button:hover,
+.bookmark-bar .bookmark-item:hover,
+.bookmark-bar .bookmarkbar-item:hover {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(calc(var(--blurStrength) * 0.5));
+    -webkit-backdrop-filter: blur(calc(var(--blurStrength) * 0.5));
+}
+
+.bookmark-bar button:active,
+.bookmark-bar .button-toolbar > button:active,
+.bookmark-bar .bookmark-item:active,
+.bookmark-bar .bookmarkbar-item:active,
+.bookmark-bar .button-toolbar > button[aria-pressed="true"] {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(calc(var(--blurStrength) * 0.7));
+    -webkit-backdrop-filter: blur(calc(var(--blurStrength) * 0.7));
+}
+
+.bookmark-bar .separator {
+    opacity: 0.5;
+    border-right: 1px solid color-mix(in srgb, var(--colorFg), transparent 60%) !important;
+}
+
+/* ====================== */
+/* MENU BAR               */
+/* ====================== */
+
+.menubar {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: var(--radius) !important;
+    margin: 4px;
+    height: 28px !important; 
+    display: flex;
+    align-items: center;
+}
+
+.menubar > .menuitem {
+    color: var(--colorFg) !important;
+    background: transparent !important;
+    border-radius: var(--radius);
+    padding: 0 10px !important;
+    transition: background-color 0.2s ease, backdrop-filter 0.2s ease;
+}
+
+.menubar > .menuitem:hover {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurMed) !important;
+}
+
+.menubar > .menuitem:active,
+.menubar > .menuitem[open] {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurMedHigh) !important;
+}
+
+/* ====================== */
+/* STARTPAGE              */
+/* ====================== */
+
+.SpeedDial--Thumbnail {
+    background-color: var(--bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: none;
+}
+
+.startpage .SearchField:not(:hover):not(:focus-within),
+.StartPage .SearchField:not(:hover):not(:focus-within),
+.SpeedDial .SearchField:not(:hover):not(:focus-within),
+.SpeedDialView .SearchField:not(:hover):not(:focus-within) {
+    background-color: var(--bg) !important;
+    backdrop-filter: var(--blurMed) !important;
+    -webkit-backdrop-filter: var(--blurMed) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: none !important;
+    transition: background-color 0.18s ease, backdrop-filter 0.18s ease;
+}
+
+.startpage .SearchField:hover,
+.startpage .SearchField:focus-within,
+.StartPage .SearchField:hover,
+.StartPage .SearchField:focus-within,
+.SpeedDial .SearchField:hover,
+.SpeedDial .SearchField:focus-within,
+.SpeedDialView .SearchField:hover,
+.SpeedDialView .SearchField:focus-within {
+    background-color: var(--bg) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: var(--radius) !important;
+}
+
+.startpage .SearchField input,
+.StartPage .SearchField input,
+.SpeedDial .SearchField input,
+.SpeedDialView .SearchField input {
+    background: transparent !important;
+    color: inherit !important;
+    border-radius: var(--radius) !important;
+}
+
+.startpage .startpage-navigation {
+    background-color: var(--bg);
+    backdrop-filter: blur(var(--startpageNavBlur));
+    -webkit-backdrop-filter: blur(var(--startpageNavBlur));
+    box-shadow: unset;
+    padding-top: var(--startpageNavPaddingOnTop);
+    padding-bottom: calc(var(--startpageNavPaddingOnBottom) - 2px);
+    min-height: unset;
+    display: flex;
+    justify-content: center;
+    border-radius: var(--customRadius);
+}
+
+.startpage .startpage-folder-navigation button {
+    background-color: unset;
+}
+
+.startpage .startpage-navigation .button-startpage,
+.startpage .startpage-folder-navigation .button-startpage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--startpageNavBtnHeight);
+    border-radius: var(--startpageNavBtnRounding) !important;
+    border: 1.2px solid var(--startpageNavBtnPrimary);
+    background-color: var(--startpageNavBtnInactive);
+    color: var(--startpageNavBtnPrimary);
+    margin: 0 var(--startpageNavBtnMargin) !important;
+    text-shadow: var(--startpageNavTextShadow);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    transition: 0.2s ease;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.startpage .startpage-navigation .button-startpage.active,
+.startpage .startpage-navigation .button-startpage:hover,
+.startpage .startpage-folder-navigation .button-startpage:hover {
+    color: var(--startpageNavBtnSecondary);
+    background-color: var(--startpageNavBtnPrimary);
+    text-shadow: 0 0 0.5px var(--startpageNavBtnSecondary);
+    backdrop-filter: blur(var(--startpageNavBlurStrong));
+    -webkit-backdrop-filter: blur(var(--startpageNavBlurStrong));
+}
+
+.startpage .startpage-navigation .button-startpage svg,
+.startpage .startpage-folder-navigation .button-startpage svg {
+    color: var(--startpageNavBtnPrimary);
+    filter: var(--startpageNavIconShadow);
+    width: auto;
+    height: 2.1em;
+}
+
+.startpage .startpage-navigation .button-startpage.active svg,
+.startpage .startpage-navigation .button-startpage:hover svg,
+.startpage .startpage-folder-navigation .button-startpage:hover svg {
+    color: var(--startpageNavBtnSecondary);
+    filter: unset;
+}
+
+button.button-startpage.up-level svg {
+    position: unset;
+    margin: 0 4px;
+}
+
+button.button-startpage.up-level span { 
+    display: flex; 
+}
+
+.button-startpage.up-level { 
+    padding: 0 14px 0 6px; 
+}
+
+.startpage .startpage-folder-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Dashboard-Widgets .dashboard-widget {
+    background-color: var(--bg);
+    backdrop-filter: blur(12px) !important;
+}
+
+.startpage .startpage-navigation .startpage-navigation-group:last-of-type { 
+    border: unset; 
+}
+
+button.button-startpage:after { 
+    content: unset; 
+}
+
+.startpage .startpage-navigation .button-startpage.add-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    min-width: 27px;
+    height: var(--startpageNavBtnHeight);
+    border-radius: var(--startpageNavBtnRounding) !important;
+    background-color: var(--startpageNavBtnInactive);
+    border: 1.2px solid var(--startpageNavBtnPrimary);
+    margin: 0 var(--startpageNavBtnMargin) !important;
+    text-shadow: var(--startpageNavTextShadow);
+    box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.startpage .startpage-navigation .button-startpage.add-set svg {
+    height: 16px;
+    width: 16px;
+    margin: 0;
+    display: block;
+}
+
+.startpage .startpage-navigation .button-startpage.add-set:hover,
+.startpage .startpage-navigation .button-startpage.add-set.active {
+    background-color: var(--startpageNavBtnPrimary);
+    color: var(--startpageNavBtnSecondary);
+    backdrop-filter: blur(var(--startpageNavBlurStrong));
+    -webkit-backdrop-filter: blur(var(--startpageNavBlurStrong));
+}
+
+.startpage .startpage-navigation .button-startpage.add-set:hover svg path,
+.startpage .startpage-navigation .button-startpage.add-set.active svg path {
+    fill: var(--startpageNavBtnSecondary);
+}
+
+.speeddial { 
+    margin-top: 0; 
+    padding-top: 2px; 
+}
+
+.sdwrapper .iconmenu-container.searchfield { 
+    margin: 0px auto 25px; 
+}
+
+.startpage .startpage-navigation .button-startpage[data-id="notes"] svg { 
+    transform: scale(1.45); 
+}
+
+/* ====================== */
+/* MISC FIXES             */
+/* ====================== */
+
+.find-in-page-wrapper {
+    background-color: var(--bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+#history-panel .vivaldi-tree .tree-row {
+    background-color: transparent !important;
+    backdrop-filter: var(--blurMed) !important;
+    -webkit-backdrop-filter: var(--blurMed) !important;
+    transition: backdrop-filter var(--anim-duration) ease, background-color var(--anim-duration) ease;
+}
